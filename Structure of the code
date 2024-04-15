@@ -1,0 +1,64 @@
+Code Structure:
+
+1.) ClubMember class:
+This class represents a member of the club.
+Attributes:
+name: Name of the member.
+email: Email of the member (used as a unique identifier).
+membership_status: Status of the membership (Active/Not Active).
+voted_roles: Set to track which roles the member has voted for.
+
+2.) ClubVoteRegistrationSystem class:
+This class manages the club's voting registration system.
+Attributes:
+members: Dictionary to store members, with email as the key.
+poll_results: Dictionary to store the poll results for each role and candidate.
+Methods:
+register_member: Registers a new member in the system.
+verify_eligibility: Verifies if a member is eligible to vote.
+vote: Records a member's vote for a specific role and candidate.
+display_poll_results: Displays the poll results including the count and percentage of votes for each candidate.
+
+3.) main function:
+This function is the entry point of the program.
+It creates an instance of the ClubVoteRegistrationSystem class and manages the user interaction loop.
+
+
+Systematic Code Structure Diagram:
+           +------------------+
+           | ClubMember       |
+           +------------------+
+           | - name           |
+           | - email          |
+           | - membership_status|
+           | - voted_roles    |
+           +------------------+
+                    |
+                    |
+                    V
+           +------------------+
+           | ClubVoteRegistrationSystem|
+           +------------------+
+           | - members        |
+           | - poll_results   |
+           +------------------+
+           | + register_member() |
+           | + verify_eligibility() |
+           | + vote()         |
+           | + display_poll_results()|
+           +------------------+
+                    |
+                    |
+                    V
+         +--------------------+
+         |       main()       |
+         +--------------------+
+         
+Explanation:
+ClubMember class: Represents individual members of the club. Each member has a name, email, membership status, and a set to track the roles they've voted for.
+
+ClubVoteRegistrationSystem class: Manages the voting registration system. It contains a dictionary to store members and their details, as well as poll results. The methods in this class handle member registration, eligibility verification, voting, and displaying poll results.
+
+Main function: Serves as the entry point of the program. It creates an instance of the ClubVoteRegistrationSystem class and presents a menu-driven interface for users to register, verify eligibility, vote, view poll results, or exit the program.
+
+This structure allows for a clear separation of concerns, with the ClubVoteRegistrationSystem class handling the core functionality related to voting and member management, while the main function orchestrates user interaction.
