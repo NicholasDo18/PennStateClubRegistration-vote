@@ -1,0 +1,69 @@
+Functionalities
+1.) Register Member:
+Allows a user to register as a member by providing their name, email, and membership status.
+Checks if the member is already registered and prevents duplicate registrations.
+
+2.) Verify Eligibility:
+Allows a user to verify their eligibility to vote by providing their email.
+Checks if the member exists and if their membership status is "Active".
+
+3.)Vote:
+Allows a registered and eligible member to cast their vote for a specific role and candidate.
+Checks if the member has already voted for the same role and prevents multiple votes for the same role.
+
+4.) Display Poll Results:
+Displays the current poll results including the count and percentage of votes for each candidate in each role.
+
+5.) Exit
+exits the program
+
+Testing results
+1.) Register Member:
+Test Case 1 (Successful Registration):
+Input: Name: "Alice", Email: "alice@example.com", Membership Status: "Active".
+Expected Output: "Alice successfully registered."
+Result: Pass
+
+Test Case 2 (Duplicate Registration):
+Input: Name: "Bob", Email: "bob@example.com", Membership Status: "Active" (Already registered).
+Expected Output: "Member already registered."
+Result: Pass
+
+2.) Verify Eligibility:
+Test Case 1 (Eligible Member):
+Input: Email: "alice@example.com" (Active member).
+Expected Output: "Member is eligible to vote."
+Result: Pass
+
+Test Case 2 (Inactive Member):
+Input: Email: "bob@example.com" (Not Active member).
+Expected Output: "Member is not eligible to vote."
+Result: Pass
+
+Test Case 3 (Non-existent Member):
+Input: Email: "charlie@example.com" (Non-existent member).
+Expected Output: "Member not found."
+Result: Pass
+
+3.) Vote:
+Test Case 1 (Successful Vote):
+Input: Email: "alice@example.com", Role: "President", Candidate: "Candidate 1".
+Expected Output: "Vote recorded successfully."
+Result: Pass
+
+Test Case 2 (Multiple Votes):
+Input: Email: "alice@example.com" (Already voted for President).
+Expected Output: "Member has already voted for this role."
+Result: Pass
+
+4.) Display Poll Results:
+Test Case 1 (Empty Poll):
+Expected Output: Poll Results: (All roles with 0 votes)
+Result: Pass
+
+Test Case 2 (With Votes):
+After registering multiple votes for different roles and candidates.
+Expected Output: Poll Results: (With vote counts and percentages)
+Result: Pass
+
+Outputs from the program:
