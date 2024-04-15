@@ -1,0 +1,2 @@
+Goal of the Project:
+The primary objective of the project is to develop a software application for managing elections for clubs or organizations. The project aims to facilitate various aspects of the election process, including voter registration, eligibility verification, voting, and displaying poll results. By providing a user-friendly interface, the project seeks to streamline the election process and ensure efficient management of elections. 
