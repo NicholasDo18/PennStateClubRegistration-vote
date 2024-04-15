@@ -65,5 +65,3 @@ Test Case 2 (With Votes):
 After registering multiple votes for different roles and candidates.
 Expected Output: Poll Results: (With vote counts and percentages)
 Result: Pass
-
-Outputs from the program:
