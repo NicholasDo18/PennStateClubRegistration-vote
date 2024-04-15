@@ -1,0 +1,18 @@
+# Installation and Usage Instructions:
+
+1. **Interacting with the Club Vote Registration System:**
+   - Upon running the script, you will see a menu with the following options:
+     - **1. Register Member:** Allows you to register a club member by providing their name, email, and membership status (Active/Not Active).
+     - **2. Verify Eligibility:** Enables you to check if a club member is eligible to vote by entering their email address.
+     - **3. Vote:** Allows a registered member to cast their vote by providing their email, the role they are voting for (President/Vice President/Secretary/Treasurer), and their chosen candidate.
+     - **4. Display Poll Results:** Displays the current poll results showing the number of votes each candidate has received for each role.
+     - **5. Exit:** Terminates the program.
+
+2. **Follow On-Screen Prompts:**
+   - Follow the on-screen prompts to interact with the Club Vote Registration System.
+   - Input the required information or selections as prompted by the system.
+
+3. **Exit the Program:**
+   - To exit the program, select option 5 from the menu.
+
+Following these steps will allow you to use the Club Vote Registration System effectively.
