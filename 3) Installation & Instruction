@@ -7,7 +7,8 @@
      - **3. Vote:** Allows a registered member to cast their vote by providing their email, the role they are voting for (President/Vice President/Secretary/Treasurer), and their chosen candidate.
      - **4. Display Poll Results:** Displays the current poll results showing the number of votes each candidate has received for each role.
      - **5. Remove Member:** Allows you to remove a registered member by providing their email.
-     - **6. Exit:** Terminates the program.
+     - **6. List Registered Members:** Allows you to list all of the current members with their name and email.
+     - **7. Exit:** Terminates the program.
 
 2. **Follow On-Screen Prompts:**
    - Follow the on-screen prompts to interact with the Club Vote Registration System.
