@@ -18,7 +18,10 @@ Displays the current poll results including the count and percentage of votes fo
 Allows the user to remove a member from the system. Prompts for the member's email to be removed.
 Check if the member exists and remove them from the system if found. Lastly, prints a message indicating whether the member has successfully removed or not.
 
-6.) Exit
+6.) List Registered Members:
+List all registered members. It traverses the linked list starting from the head node. During each interaction, it prints the name and email of the current member. For each member in the list, it prints their name and email. Once all members have been traversed and printed, the function completes its execution.
+
+7.) Exit
 exits the program
 
 Testing results
@@ -70,35 +73,7 @@ After registering multiple votes for different roles and candidates.
 Expected Output: Poll Results: (With vote counts and percentages)
 Result: Pass
 
-Testing Scenario
-Club Vote Registration System
-1. Register Member
-2. Verify Eligibility
-3. Vote
-4. Display Poll Results
-5. Remove Member
-6. Exit
-Enter your choice: 1
-Enter member's name: Alice
-Enter member's email: alice@example.com
-Enter member's membership status (Active/Not Active): Active
-Alice successfully registered.
 
-Enter your choice: 1
-Enter member's name: Bob
-Enter member's email: bob@example.com
-Enter member's membership status (Active/Not Active): Active
-Bob successfully registered.
-
-Enter your choice: 1
-Enter member's name: Karol
-Enter member's email: Karol@example.com
-Enter member's membership status (Active/Not Active): Active
-Carol successfully registered.
-
-Enter your choice: 5
-Enter member's email to remove: bob@example.com
-Member with email bob@example.com has been removed.
 
 We registred three members named Alice, Bob, and Karol. Then we removed Bob from the system, leaving only two people.
 
