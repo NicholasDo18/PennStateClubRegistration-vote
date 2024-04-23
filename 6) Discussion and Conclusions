@@ -20,6 +20,9 @@ The project demonstrates OOP principles by using classes (ClubMember and ClubVot
 
 2.) Data Structures: 
 The project uses dictionaries to store member data (self.members) and voting results (self.poll_results). Understanding data structures helps in organizing and manipulating data efficiently.
+Class- 'ClubMember' represents a club member with attributes such as name, email, membership status, and a set to track roles.
+Linked List- implemented to store instances of ClubMember. Each node in the linked list contains a ClubMember object and a reference to the next node. Also efficient in insertion, deletion, and traversal operations.
+Set- The voted_roles attribute within the ClubMember class is a set. It is used to track which roles a member has voted for to prevent duplicate votes. 
 
 3.) Error Handling: 
 The project incorporates error-handling techniques to manage potential runtime errors and provide informative feedback to users. Handling exceptions is an essential aspect of software development.
