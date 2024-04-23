@@ -41,29 +41,61 @@ Implements a user interface for interacting with the club vote registration syst
 Provides options to register members, verify eligibility, vote, display poll results, remove members, or exit the program.
 
 Systematic Code Structure Diagram:
-ClubMember
-└── name
-└── email
-└── membership_status
-└── voted_roles
+                         +----------------------+
+                         |   ClubMember Class   |
+                         +----------------------+
+                         | - name: str          |
+                         | - email: str         |
+                         | - membership_status:|
+                         |     str              |
+                         | - voted_roles: set  |
+                         +----------------------+
+                                    |
+                                    |
+                                    v
+                         +----------------------+
+                         |      Node Class      |
+                         +----------------------+
+                         | - member: ClubMember |
+                         | - next: Node         |
+                         +----------------------+
+                                    |
+                                    |
+                                    v
+                         +----------------------+
+                         |   LinkedList Class   |
+                         +----------------------+
+                         | - head: Node         |
+                         |                      |
+                         | - append(member)     |
+                         | - remove(email)      |
+                         +----------------------+
+                                    |
+                                    |
+                                    v
+                         +----------------------+
+                         | ClubVoteRegistration |
+                         |      System Class    |
+                         +----------------------+
+                         | - members: LinkedList|
+                         | - poll_results: dict |
+                         |                      |
+                         | - register_member()  |
+                         | - verify_eligibility()|
+                         | - remove_member()    |
+                         | - vote()             |
+                         | - display_poll_results()|
+                         | - list_registered_members()|
+                         +----------------------+
+                                    |
+                                    |
+                                    v
+                         +----------------------+
+                         |       Main Function  |
+                         +----------------------+
+                         | - main()             |
+                         +----------------------+
 
-Node
-└── member
-└── next
-
-LinkedList
-└── head
-└── append()
-└── remove()
-
-ClubVoteRegistrationSystem
-└── members (LinkedList)
-└── poll_results
-└── register_member()
-└── verify_eligibility()
-└── remove_member()
-└── vote()
-└── display_poll_results()
 
 main()
 
@@ -71,7 +103,7 @@ main()
 Explanation:
 ClubMember class: Represents individual members of the club. Each member has a name, email, membership status, and a set to track the roles they've voted for.
 
-ClubVoteRegistrationSystem class: Manages the voting registration system. It contains a dictionary to store members and their details, as well as poll results. The methods in this class handle member registration, eligibility verification, voting, removing, and displaying poll results.
+ClubVoteRegistrationSystem class: Manages the voting registration system. It contains a dictionary to store members and their details, as well as poll results. The methods in this class handle member registration, eligibility verification, voting, removing, listing all current members, and displaying poll results.
 
 Main function: Serves as the entry point of the program. It creates an instance of the ClubVoteRegistrationSystem class and presents a menu-driven interface for users to register, verify eligibility, vote, view poll results, or exit the program.
 
