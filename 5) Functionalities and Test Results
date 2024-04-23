@@ -91,8 +91,8 @@ Enter member's membership status (Active/Not Active): Active
 Bob successfully registered.
 
 Enter your choice: 1
-Enter member's name: Carol
-Enter member's email: carol@example.com
+Enter member's name: Karol
+Enter member's email: Karol@example.com
 Enter member's membership status (Active/Not Active): Active
 Carol successfully registered.
 
@@ -100,5 +100,5 @@ Enter your choice: 5
 Enter member's email to remove: bob@example.com
 Member with email bob@example.com has been removed.
 
-We registred three members named Alice, Bob, and Carol. Then we removed Bob from the system, leaving only two people.
+We registred three members named Alice, Bob, and Karol. Then we removed Bob from the system, leaving only two people.
 
