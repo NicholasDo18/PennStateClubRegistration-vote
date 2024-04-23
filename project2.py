@@ -5,9 +5,51 @@ class ClubMember:
         self.membership_status = membership_status
         self.voted_roles = set()  # Track which roles the member has voted for
 
+class Node:
+    def __init__(self, member):
+        self.member = member
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, member):
+        new_node = Node(member)
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def remove(self, email):
+        removed = False
+        if not self.head:
+            print("List is empty.")
+            return
+        if self.head.member.email == email:
+            self.head = self.head.next
+            removed = True
+        else:
+            current = self.head
+            prev = None
+            while current:
+                if current.member.email == email:
+                    prev.next = current.next
+                    removed = True
+                    break
+                prev = current
+                current = current.next
+        if removed:
+            print(f"Member with email {email} has been removed.")
+        else:
+            print("Member not found.")
+
 class ClubVoteRegistrationSystem:
     def __init__(self):
-        self.members = {}  # Dictionary to store members
+        self.members = LinkedList()  # Linked list to store members
         self.poll_results = {
             'President': {'Candidate 1': 0, 'Candidate 2': 0},
             'Vice President': {'Candidate 1': 0, 'Candidate 2': 0},
@@ -17,50 +59,62 @@ class ClubVoteRegistrationSystem:
 
     def register_member(self, name, email, membership_status):
         # Check if the member is already registered
-        if email in self.members:
-            print("Member already registered.")
-            return
+        current = self.members.head
+        while current:
+            if current.member.email == email:
+                print("Member already registered.")
+                return
+            current = current.next
         # Create a new ClubMember object
         member = ClubMember(name, email, membership_status)
-        # Add the member to the dictionary
-        self.members[email] = member
+        # Add the member to the linked list
+        self.members.append(member)
         print(f"{name} successfully registered.")
 
     def verify_eligibility(self, email):
         # Check if the member exists
-        if email not in self.members:
-            print("Member not found.")
-            return False
-        member = self.members[email]
-        # Check membership status for eligibility
-        if member.membership_status == "Active":
-            print("Member is eligible to vote.")
-            return True
-        else:
-            print("Member is not eligible to vote.")
-            return False
+        current = self.members.head
+        while current:
+            if current.member.email == email:
+                member = current.member
+                # Check membership status for eligibility
+                if member.membership_status == "Active":
+                    print("Member is eligible to vote.")
+                    return True
+                else:
+                    print("Member is not eligible to vote.")
+                    return False
+            current = current.next
+        print("Member not found.")
+        return False
+
+    def remove_member(self, email):
+        self.members.remove(email)
 
     def vote(self, email, role, candidate):
         # Check if the member exists and is eligible to vote
-        if email not in self.members:
-            print("Member not found.")
-            return
-        member = self.members[email]
-        if member.membership_status != "Active":
-            print("Member is not eligible to vote.")
-            return
-        # Check if the member has already voted for this role
-        if role in member.voted_roles:
-            print("Member has already voted for this role.")
-            return
-        # Check if the role and candidate are valid
-        if role not in self.poll_results or candidate not in self.poll_results[role]:
-            print("Invalid role or candidate.")
-            return
-        # Record the vote
-        self.poll_results[role][candidate] += 1
-        member.voted_roles.add(role)
-        print("Vote recorded successfully.")
+        current = self.members.head
+        while current:
+            if current.member.email == email:
+                member = current.member
+                if member.membership_status != "Active":
+                    print("Member is not eligible to vote.")
+                    return
+                # Check if the member has already voted for this role
+                if role in member.voted_roles:
+                    print("Member has already voted for this role.")
+                    return
+                # Check if the role and candidate are valid
+                if role not in self.poll_results or candidate not in self.poll_results[role]:
+                    print("Invalid role or candidate.")
+                    return
+                # Record the vote
+                self.poll_results[role][candidate] += 1
+                member.voted_roles.add(role)
+                print("Vote recorded successfully.")
+                return
+            current = current.next
+        print("Member not found.")
 
     def display_poll_results(self):
         print("Poll Results:")
@@ -82,7 +136,8 @@ def main():
         print("2. Verify Eligibility")
         print("3. Vote")
         print("4. Display Poll Results")
-        print("5. Exit")
+        print("5. Remove Member")
+        print("6. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -105,6 +160,9 @@ def main():
         elif choice == "4":
             registration_system.display_poll_results()
         elif choice == "5":
+            email = input("Enter member's email to remove: ")
+            registration_system.remove_member(email)
+        elif choice == "6":
             print("Exiting program.")
             break
         else:
