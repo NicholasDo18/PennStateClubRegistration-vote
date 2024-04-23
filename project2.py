@@ -91,13 +91,6 @@ class ClubVoteRegistrationSystem:
     def remove_member(self, email):
         self.members.remove(email)
 
-    def list_registered_members(self):
-        print("Registered Members:")
-        current = self.members.head
-        while current:
-            print(f"Name: {current.member.name}, Email: {current.member.email}, Membership Status: {current.member.membership_status}")
-            current = current.next
-
     def vote(self, email, role, candidate):
         # Check if the member exists and is eligible to vote
         current = self.members.head
@@ -133,6 +126,12 @@ class ClubVoteRegistrationSystem:
                 print(f"{candidate}: {votes} votes ({percentage:.2f}%)")
             print()
 
+    def list_registered_members(self):
+        print("Registered Members:")
+        current = self.members.head
+        while current:
+            print(f"Name: {current.member.name}, Email: {current.member.email}")
+            current = current.next
 
 def main():
     registration_system = ClubVoteRegistrationSystem()
@@ -151,5 +150,34 @@ def main():
 
         if choice == "1":
             name = input("Enter member's name: ")
-            email
+            email = input("Enter member's email: ")
+            membership_status = input("Enter member's membership status (Active/Not Active): ")
+            while membership_status not in ["Active", "Not Active"]:
+                print("Invalid membership status. Please enter 'Active' or 'Not Active'.")
+                membership_status = input("Enter member's membership status (Active/Not Active): ")
+            registration_system.register_member(name, email, membership_status)
+        elif choice == "2":
+            email = input("Enter member's email to verify eligibility: ")
+            registration_system.verify_eligibility(email)
+        elif choice == "3":
+            email = input("Enter member's email to vote: ")
+            role = input("Enter the role (President/Vice President/Secretary/Treasurer): ")
+            candidate = input(f"Enter the candidate (Candidate 1/Candidate 2) for {role}: ")
+            registration_system.vote(email, role, candidate)
+        elif choice == "4":
+            registration_system.display_poll_results()
+        elif choice == "5":
+            email = input("Enter member's email to remove: ")
+            registration_system.remove_member(email)
+        elif choice == "6":
+            registration_system.list_registered_members()
+        elif choice == "7":
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+if __name__ == "__main__":
+    main()
 
