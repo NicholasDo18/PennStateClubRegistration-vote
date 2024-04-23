@@ -1,63 +1,77 @@
 Code Structure:
-
-1.) ClubMember class:
-This class represents a member of the club.
+1.) ClubMember Class:
 Attributes:
-name: Name of the member.
-email: Email of the member (used as a unique identifier).
-membership_status: Status of the membership (Active/Not Active).
-voted_roles: Set to track which roles the member has voted for.
+name: Represents the name of the club member.
+email: Represents the email address of the club member.
+membership_status: Represents the membership status of the club member (Active/Not Active).
+voted_roles: Tracks which roles the member has voted for using a set data structure.
+Purpose: Represents individual club members and their associated data.
 
-2.) ClubVoteRegistrationSystem class:
-This class manages the club's voting registration system.
+2.) Node Class:
 Attributes:
-members: Dictionary to store members, with email as the key.
-poll_results: Dictionary to store the poll results for each role and candidate.
+member: Represents a club member object.
+next: Represents a reference to the next node in the linked list.
+Purpose: Represents a node in a linked list data structure.
+
+3.) LinkedList Class:
+Attributes:
+head: Represents the head of the linked list.
+
 Methods:
-register_member: Registers a new member in the system.
-verify_eligibility: Verifies if a member is eligible to vote.
-vote: Records a member's vote for a specific role and candidate.
-display_poll_results: Displays the poll results including the count and percentage of votes for each candidate.
+append(member): Appends a new member to the end of the linked list.
+remove(email): Removes a member from the linked list based on their email address.
+Purpose: Implements a linked list data structure to store club members.
 
-3.) main function:
-This function is the entry point of the program.
-It creates an instance of the ClubVoteRegistrationSystem class and manages the user interaction loop.
+4.) ClubVoteRegistrationSystem Class:
+Attributes:
+members: Represents a linked list to store club members.
+poll_results: Represents a dictionary to store poll results.
 
+Methods:
+register_member(name, email, membership_status): Registers a new member in the system.
+verify_eligibility(email): Verifies the eligibility of a member to vote.
+remove_member(email): Removes a member from the system based on their email address.
+vote(email, role, candidate): Records a vote for a specific role and candidate.
+display_poll_results(): Displays the poll results.
+Purpose: Manages the club vote registration system, including member registration, eligibility verification, voting, and displaying poll results.
+
+5.) main() Function:
+Purpose: Serves as the entry point of the program.
+Implements a user interface for interacting with the club vote registration system.
+Provides options to register members, verify eligibility, vote, display poll results, remove members, or exit the program.
 
 Systematic Code Structure Diagram:
-           +------------------+
-           | ClubMember       |
-           +------------------+
-           | - name           |
-           | - email          |
-           | - membership_status|
-           | - voted_roles    |
-           +------------------+
-                    |
-                    |
-                    V
-           +------------------+
-           | ClubVoteRegistrationSystem|
-           +------------------+
-           | - members        |
-           | - poll_results   |
-           +------------------+
-           | + register_member() |
-           | + verify_eligibility() |
-           | + vote()         |
-           | + display_poll_results()|
-           +------------------+
-                    |
-                    |
-                    V
-         +--------------------+
-         |       main()       |
-         +--------------------+
-         
+ClubMember
+└── name
+└── email
+└── membership_status
+└── voted_roles
+
+Node
+└── member
+└── next
+
+LinkedList
+└── head
+└── append()
+└── remove()
+
+ClubVoteRegistrationSystem
+└── members (LinkedList)
+└── poll_results
+└── register_member()
+└── verify_eligibility()
+└── remove_member()
+└── vote()
+└── display_poll_results()
+
+main()
+
+
 Explanation:
 ClubMember class: Represents individual members of the club. Each member has a name, email, membership status, and a set to track the roles they've voted for.
 
-ClubVoteRegistrationSystem class: Manages the voting registration system. It contains a dictionary to store members and their details, as well as poll results. The methods in this class handle member registration, eligibility verification, voting, and displaying poll results.
+ClubVoteRegistrationSystem class: Manages the voting registration system. It contains a dictionary to store members and their details, as well as poll results. The methods in this class handle member registration, eligibility verification, voting, removing, and displaying poll results.
 
 Main function: Serves as the entry point of the program. It creates an instance of the ClubVoteRegistrationSystem class and presents a menu-driven interface for users to register, verify eligibility, vote, view poll results, or exit the program.
 
