@@ -1,7 +1,7 @@
 Functionalities
 1.) Register Member:
 Allows a user to register as a member by providing their name, email, and membership status.
-Checks if the member is already registered and prevents duplicate registrations.
+Check if the member is already registered and prevent duplicate registrations.
 
 2.) Verify Eligibility:
 Allows a user to verify their eligibility to vote by providing their email.
@@ -9,7 +9,7 @@ Checks if the member exists and if their membership status is "Active".
 
 3.)Vote:
 Allows a registered and eligible member to cast their vote for a specific role and candidate.
-Checks if the member has already voted for the same role and prevents multiple votes for the same role.
+Check if the member has already voted for the same role and prevent multiple votes for the same role.
 
 4.) Display Poll Results:
 Displays the current poll results including the count and percentage of votes for each candidate in each role.
@@ -72,8 +72,3 @@ Test Case 2 (With Votes):
 After registering multiple votes for different roles and candidates.
 Expected Output: Poll Results: (With vote counts and percentages)
 Result: Pass
-
-
-
-We registred three members named Alice, Bob, and Karol. Then we removed Bob from the system, leaving only two people.
-
